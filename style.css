@@ -1,0 +1,48 @@
+img{
+    width: 100%;
+}
+/* .active{
+    display:inline-block !important;
+} */
+
+/* .banner{
+    height: 80vh;
+} */
+.thumbnails{
+    padding: 0 .5rem;
+}
+
+.previous,
+.next {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    border-radius: 50%;
+
+    opacity: .6;
+
+    left: 50%;
+    right: 50%;
+    transform: translatex(-50%);
+
+    color: black;
+    background-color: rgb(229, 229, 229);
+
+    cursor: pointer;
+}
+.arrow{
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+.previous{
+    top: .2rem;
+}
+
+.next{
+    bottom: .2rem;
+}
