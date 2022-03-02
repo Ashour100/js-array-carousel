@@ -28,8 +28,9 @@ let bannerContent='';
 
 for (let i = 0 ; i < images.length ; i++){
     thumbnailContent += `
-    <div class="thumbnail-element">
+    <div class="thumbnail-element position-relative">
         <img src="${images[i]}" alt="Random pic">
+        <div class="effect overlay position-absolute w-100 h-100"></div>
     </div>`;
     bannerContent += `
     <div class="banner-element d-none position-relative">
@@ -61,9 +62,47 @@ const next = document.querySelector('.next');
 let activeElement = 0;
 
 next.addEventListener('click', function() {
-    bannerElements[activeElement].classList.remove('d-block');
-    bannerElements[activeElement].classList.add('d-none');
-    activeElement++;
-    bannerElements[activeElement].classList.remove('d-none');
-    bannerElements[activeElement].classList.add('d-block');
+    if(activeElement<bannerElements.length-1){
+        bannerElements[activeElement].classList.remove('d-block');
+        bannerElements[activeElement].classList.add('d-none');
+        thumbnailElements[activeElement].classList.remove('active');
+        activeElement++;
+        bannerElements[activeElement].classList.remove('d-none');
+        bannerElements[activeElement].classList.add('d-block');
+        thumbnailElements[activeElement].classList.add('active');
+    }
+    else{
+        bannerElements[activeElement].classList.remove('d-block');
+        bannerElements[activeElement].classList.add('d-none');
+        thumbnailElements[activeElement].classList.remove('active');
+        activeElement=0;
+        bannerElements[activeElement].classList.remove('d-none');
+        bannerElements[activeElement].classList.add('d-block');
+        thumbnailElements[activeElement].classList.add('active');
+    }
+});
+
+const previous = document.querySelector('.previous');
+
+activeElement = 0;
+
+previous.addEventListener('click', function() {
+    if(activeElement>=1){
+        bannerElements[activeElement].classList.remove('d-block');
+        bannerElements[activeElement].classList.add('d-none');
+        thumbnailElements[activeElement].classList.remove('active');
+        activeElement--;
+        bannerElements[activeElement].classList.remove('d-none');
+        bannerElements[activeElement].classList.add('d-block');
+        thumbnailElements[activeElement].classList.add('active');
+    }
+    else{
+        bannerElements[activeElement].classList.remove('d-block');
+        bannerElements[activeElement].classList.add('d-none');
+        thumbnailElements[activeElement].classList.remove('active');
+        activeElement=bannerElements.length-1;
+        bannerElements[activeElement].classList.remove('d-none');
+        bannerElements[activeElement].classList.add('d-block');
+        thumbnailElements[activeElement].classList.add('active');
+    }
 });

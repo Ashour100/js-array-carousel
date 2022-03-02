@@ -1,13 +1,9 @@
 img{
     width: 100%;
 }
-/* .active{
-    display:inline-block !important;
-} */
-
-/* .banner{
+.banner{
     height: 80vh;
-} */
+}
 .thumbnails{
     padding: 0 .5rem;
 }
@@ -20,17 +16,14 @@ img{
     font-size: 2rem;
     line-height: 2rem;
     border-radius: 50%;
-
     opacity: .6;
-
     left: 50%;
     right: 50%;
     transform: translatex(-50%);
-
     color: black;
     background-color: rgb(229, 229, 229);
-
     cursor: pointer;
+    z-index: 5;
 }
 .arrow{
     position: absolute;
@@ -46,3 +39,12 @@ img{
 .next{
     bottom: .2rem;
 }
+.overlay{
+    background-color: rgba(0, 0, 0, 0.459);
+    top: 0;
+    left: 0;
+}
+.active .overlay{
+    background-color: rgba(0, 0, 0, 0);
+}
+
